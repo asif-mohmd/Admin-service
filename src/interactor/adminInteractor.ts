@@ -8,7 +8,14 @@ export class AdminInteractor implements IAdminRepository{
         this.repository = repository
     }
     adminLogin(email: string, password: string) {
-        throw new Error("Method not implemented.");
+        try{
+            if(email === "admin@gmail.com" && password=== "123"){
+                
+            }
+
+        }catch(err){
+
+        }
     }
 
 
