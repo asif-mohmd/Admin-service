@@ -3,9 +3,7 @@ import "dotenv/config";
 
 
   export const loginToken = (email: string,password:string): string => {
-   
-   
-
+  
     const token = jwt.sign(
       {
         email,
