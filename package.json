@@ -2,16 +2,22 @@
   "name": "admin-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "proto:gen": "./protogen.sh",
+    "build": "npx tsc",
+    "start": "ts-node src/server.ts",
+    "dev": "nodemon src/server.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.30",
-    "typescript": "^5.4.3"
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "globals": "^15.0.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.6.0"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.10.4",
@@ -20,6 +26,8 @@
     "@types/dotenv": "^8.2.0",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/mongoose": "^5.11.97",
-    "@types/nodemailer": "^6.4.14"
+    "@types/nodemailer": "^6.4.14",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.0"
   }
 }

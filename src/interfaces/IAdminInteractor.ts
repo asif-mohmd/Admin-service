@@ -1,5 +1,5 @@
 export interface IAdminInteractor {
 
-    adminLogin(email: string, password: string): any;
+    adminLogin(email:string,password:string): any;
     
 }
