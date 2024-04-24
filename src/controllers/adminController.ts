@@ -33,6 +33,30 @@ export class AdminController {
     }
   };
 
+  addCategory: any = async (call: any, callback: any) => {
+    try {
+      console.log("add categ controlllllll",call.request)
+      const {categoryName} = call.request as {
+        categoryName : string,
+    
+      }
+
+      console.log(categoryName,"oooooooooiiiiiiiiiiiiii")
+      const response = await this.interactor.addCategory(categoryName)
+      if (response) {
+        callback(null, {
+        status : true
+        });
+      } else {
+        callback(null, {
+       status : false
+        });
+      }
+    } catch (error) {
+      callback(error);
+    }
+  }
+
 
 }
 

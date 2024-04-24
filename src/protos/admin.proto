@@ -5,7 +5,16 @@ service AdminService{
     rpc Register (RegisterRequest) returns (RegisterResponse) {};
     rpc Login (LoginRequest) returns (LoginResponse) {};
     // rpc ActivateUser (ActivateRequest) returns (ActivateResponse) {};
+    rpc AddCategory (AddCategoryRequest) returns (AddCategoryResponse) {};
 
+  }
+
+  message AddCategoryRequest{
+      string categoryName = 1;
+  }
+
+  message AddCategoryResponse{
+    bool status = 1;
   }
 
 message RegisterRequest{

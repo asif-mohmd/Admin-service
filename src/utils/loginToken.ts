@@ -13,6 +13,5 @@ import "dotenv/config";
       
     );
 
-
     return token
-  };
+  };  

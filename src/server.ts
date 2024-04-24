@@ -8,7 +8,7 @@ import { AdminRepository } from './repository/adminRepository'
 import { connectDB } from './config/mongodb/db'
 
 dotenv.config()
-// connectDB()
+connectDB()
 
 const packageDefinition = protoLoader.loadSync(
   path.join(__dirname, '/protos/admin.proto'),
@@ -22,6 +22,7 @@ const interactor = new AdminInteractor(repository)
 const controller = new AdminController(interactor)
 
 const server = new grpc.Server();
+
 
 const grpcServer = () => {
   server.bindAsync(
@@ -40,6 +41,7 @@ const grpcServer = () => {
     server.addService((adminProto.AdminService as any).service, {
 
         Login : controller.onLogin.bind(controller),
+        AddCategory : controller.addCategory.bind(controller)
     
         
         // Implementation of service methods

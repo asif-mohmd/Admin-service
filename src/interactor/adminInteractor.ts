@@ -8,6 +8,9 @@ export class AdminInteractor implements IAdminRepository{
     constructor(repository:IAdminRepository){
         this.repository = repository
     }
+   async addCategory(categoryName: string): Promise<boolean> {
+    return await this.repository.addCategory(categoryName)
+  }
 
     
     
