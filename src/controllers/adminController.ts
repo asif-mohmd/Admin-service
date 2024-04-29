@@ -10,7 +10,6 @@ export class AdminController {
 
   onLogin: any = async (call: any, callback: any) => {
     try {
-      console.log("admin controlllllll")
       const {email ,password} = call.request as {
         email : string,
         password: string
@@ -35,13 +34,11 @@ export class AdminController {
 
   addCategory: any = async (call: any, callback: any) => {
     try {
-      console.log("add categ controlllllll",call.request)
       const {categoryName} = call.request as {
         categoryName : string,
     
       }
 
-      console.log(categoryName,"oooooooooiiiiiiiiiiiiii")
       const response = await this.interactor.addCategory(categoryName)
       if (response) {
         callback(null, {
