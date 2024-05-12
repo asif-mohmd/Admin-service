@@ -19,23 +19,19 @@ export class AdminInteractor implements IAdminRepository{
 
          if(email === "asifasifpsps@gmail.com" && password === "123"){
             const activationToken = loginToken(email,password);
-            let loginStatus: boolean = true;
+            const loginStatus: boolean = true;
             console.log(activationToken,"]]]]]]]]]]]]]]]]]]]]]]")
             const response = { msg: "Login successful", status: 201, activationToken , loginStatus };
       
             return response;
          }else{
-            let loginStatus: boolean = false;
+            const loginStatus: boolean = false;
           const response = { msg: "Login Failed", status: 201, loginStatus };
-          
-      
-            return response;
-             
+            return response;    
          }
-        
-         
+             
         } catch (err: any) {
-          let loginStatus: boolean = false;
+          const loginStatus: boolean = false;
           const response = { msg: "Login Failed", status: 201, loginStatus };
           return response;
         }
