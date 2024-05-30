@@ -5,4 +5,6 @@ export interface IAdminRepository {
   
     adminLogin(email: string, password: string): any;
     addCategory(categoryName:string): any;
+    getAllCategories(): any
+
 }

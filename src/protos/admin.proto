@@ -6,7 +6,16 @@ service AdminService{
     rpc Login (LoginRequest) returns (LoginResponse) {};
     // rpc ActivateUser (ActivateRequest) returns (ActivateResponse) {};
     rpc AddCategory (AddCategoryRequest) returns (AddCategoryResponse) {};
+    rpc GetAllCategories (GetAllCategoriesRequest) returns (GetAllCategoriesResponse){};
 
+  }
+
+ message GetAllCategoriesRequest{
+  
+ }
+
+ message GetAllCategoriesResponse{
+    repeated string categoryNames = 1;
   }
 
   message AddCategoryRequest{
