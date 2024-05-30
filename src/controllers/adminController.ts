@@ -6,18 +6,18 @@ export class AdminController {
 
   constructor(interactor: IAdminInteractor) {
     this.interactor = interactor;
-  } 
+  }
 
   onLogin: any = async (call: any, callback: any) => {
     try {
-      const {email ,password} = call.request as {
-        email : string,
-        password: string
-      }
-      const response = await this.interactor.adminLogin(email,password)
+      const { email, password } = call.request as {
+        email: string;
+        password: string;
+      };
+      const response = await this.interactor.adminLogin(email, password);
       if (response.loginStatus) {
         callback(null, {
-          msg : "login successful",
+          msg: "login successful",
           loginStatus: true,
           activationToken: response.activationToken,
         });
@@ -34,26 +34,44 @@ export class AdminController {
 
   addCategory: any = async (call: any, callback: any) => {
     try {
-      const {categoryName} = call.request as {
-        categoryName : string,
-    
-      }
+      const { categoryName } = call.request as {
+        categoryName: string;
+      };
 
-      const response = await this.interactor.addCategory(categoryName)
+      const response = await this.interactor.addCategory(categoryName);
       if (response) {
         callback(null, {
-        status : true
+          status: true,
         });
       } else {
         callback(null, {
-       status : false
+          status: false,
         });
       }
     } catch (error) {
       callback(error);
     }
-  }
+  };
+  getAllCategories: any = async (call: any, callback: any) => {
+    try {
+      const response = await this.interactor.getAllCategories();
 
+      if (response && response.length > 0) {
+        let res = {
+          ...response,
+        };
 
+        callback(null, {
+          status: true,
+          categoryNames: response,
+        });
+      } else {
+        callback(null, {
+          status: false,
+        });
+      }
+    } catch (error) {
+      callback(error);
+    }
+  };
 }
-

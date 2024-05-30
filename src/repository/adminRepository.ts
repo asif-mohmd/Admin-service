@@ -4,16 +4,20 @@ import { IAdmin } from "../model/schemas/admin.schema";
 import Category from "../model/schemas/category.schema"; // Import ICategory interface
 
 export class AdminRepository implements IAdminRepository {
+    async getAllCategories() {
+        const categories = await Category.find();
+        return  categories.map(category => category.categoryName);
+    }
+    
     async addCategory(categoryName: string): Promise<any> {
         try {
             const category = await Category.create({ categoryName });
-            console.log('Category created:', category);
             if(category){
                 return true
             }else{
                 return false
             }
-            return category;
+           
         } catch (error) {
             console.error('Error adding category:', error);
             throw error;
