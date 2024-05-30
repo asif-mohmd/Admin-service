@@ -41,7 +41,8 @@ const grpcServer = () => {
     server.addService((adminProto.AdminService as any).service, {
 
         Login : controller.onLogin.bind(controller),
-        AddCategory : controller.addCategory.bind(controller)
+        AddCategory : controller.addCategory.bind(controller),
+        GetAllCategories : controller.getAllCategories.bind(controller)
     
         
         // Implementation of service methods
